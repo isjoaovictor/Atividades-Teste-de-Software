@@ -1,0 +1,56 @@
+name: CI Tests
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+
+jobs:
+  jest-tests:
+    name: Jest (Aula02_04_03/jest)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Aula02_04_03/jest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: Aula02_04_03/jest/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run unit and integration tests
+        run: npm test -- --runInBand
+
+  react-tests:
+    name: React Vitest (Aula02_04_03/image_rotas)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Aula02_04_03/Imagens e Rotas React/image_rotas
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: Aula02_04_03/Imagens e Rotas React/image_rotas/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run integration tests
+        run: npm test
+
+      - name: Validate production build
+        run: npm run build
