@@ -1,5 +1,42 @@
 # Teste de Software - Atualizacao de Testes de Integracao
 
+## ⚠️ Como remover a indicação "forked from"
+
+> **Limitação importante:** A remoção da indicação de fork **não pode ser feita por mudanças de código** no repositório.
+> É uma configuração de metadados no GitHub que exige uma das duas ações abaixo.
+
+### Opção 1 — Recriar o repositório (mais rápida, perde Issues/PRs)
+
+Execute os comandos a seguir no seu terminal:
+
+```bash
+# 1. Clone "bare" do fork atual
+git clone --bare https://github.com/isjoaovictor/Atividades-Teste-de-Software.git
+
+# 2. Delete o repositório forkado no GitHub:
+#    Settings → rolar até o final → "Delete this repository"
+
+# 3. Crie um NOVO repositório no GitHub com o mesmo nome,
+#    sem inicializar com README/.gitignore/licença.
+
+# 4. Envie o mirror para o novo repositório
+cd Atividades-Teste-de-Software.git
+git push --mirror https://github.com/isjoaovictor/Atividades-Teste-de-Software.git
+
+# 5. Remova a pasta temporária
+cd ..
+rm -rf Atividades-Teste-de-Software.git
+```
+
+### Opção 2 — Suporte do GitHub (preserva Issues e PRs)
+
+1. Acesse: <https://support.github.com/request/fork>
+2. Informe que deseja **"Detach a fork"**.
+3. Forneça o link do repositório: `https://github.com/isjoaovictor/Atividades-Teste-de-Software`
+4. O assistente realiza a desconexão sem apagar dados.
+
+
+
 ## 1) Projeto Jest (JavaScript)
 
 Pasta: `Aula02_04_03/jest`
