@@ -1,15 +1,5 @@
 # Teste de Software - Atualizacao de Testes de Integracao
 
-Este documento descreve tudo o que foi implementado para organizar e executar testes de integracao no repositório, incluindo automacao com GitHub Actions.
-
-## Objetivo
-
-Foram aplicadas tres entregas principais:
-
-1. Organizar e executar testes no projeto JavaScript com Jest.
-2. Implementar testes de integracao no projeto React + TypeScript.
-3. Configurar CI/CD para rodar testes automaticamente em `push` e `pull_request`.
-
 ## 1) Projeto Jest (JavaScript)
 
 Pasta: `Aula02_04_03/jest`
